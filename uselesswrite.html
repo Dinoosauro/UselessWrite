@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    <title>UselessWrite</title>
+    <style>
+        input {
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 8px;
+            padding: 8px;
+        }
+        body,
+        input {
+            font-family: sans-serif;
+            background-color: rgb(21, 21, 21);
+            color: rgb(245, 245, 245);
+        }
+        button, input {
+            background-color: rgb(41, 41, 41);
+        }
+        button {
+            color: rgb(245,245,245);
+            height: 35px;
+            width: 150px;
+            border-radius: 8px;
+        }
+        body {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Useless Write</h1>
+    <i>Write useless data to the drive</i><br><br>
+    <h2>Options:</h2><br>
+    <l>Write this phrase:</l><input type="text" id="text">
+    <l>for</l><input type="number" id="times">
+    <l>times, and download it for</l><input type="number" value="1" id="repeat">
+    <l>times</l><br><br>
+    <input type="checkbox" id="random"><l>Write random numbers</l><br><br>
+    <button id="start">Start</button>
+    <script>
+        document.getElementById("start").addEventListener("click", () => {
+            let replaceValue = document.getElementById("text").value;
+            let outStr = "";
+            if (document.getElementById("random").checked) {
+                for (let i = 0; i < document.getElementById("times").value; i++) outStr += Math.random().toString().substring(2);
+             } else {
+                for (let i = 0; i < document.getElementById("times").value; i++) outStr += replaceValue;
+             }
+            for (let i = 0; i < document.getElementById("repeat").value; i++) {
+                let a = document.createElement("a");
+                a.download = Math.random().toString().substring(2);
+                a.href = URL.createObjectURL(new Blob([outStr]));
+                a.click();
+                URL.revokeObjectURL(a.href);
+            }
+        })
+    </script>
+</body>
