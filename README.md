@@ -1,5 +1,7 @@
 # UselessWrite
 Write useless data to the disk from your browser
+
+Try it: [https://dinoosauro.github.io/UselessWrite/](https://dinoosauro.github.io/UselessWrite/)
 ## How it works
 Open the website, and then write the phrase you want to be repated. Choose the number of times it should be repeated, and then how many times the file should be downloaded. After that, press on the start button.
 
